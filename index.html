@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SecurePass - Modern Password Toolkit</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+    <div class="background-aurora"></div>
+
+    <main class="container">
+        <div class="header">
+            <h1>SecurePass</h1>
+            <p class="subtitle">Your Modern Password Toolkit</p>
+        </div>
+
+        <div class="panel">
+            <div class="generator-panel">
+                <h2>Generator</h2>
+                <div class="password-display-container">
+                    <input type="text" id="passwordOutput" placeholder="P@$$w0rd..." readonly />
+                    <button id="copyButton" title="Copy to clipboard">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="option">
+                    <label for="length">Password Length: <span id="lengthValue">12</span></label>
+                    <input type="range" id="length" min="8" max="32" value="12" />
+                </div>
+                <div class="checkbox-options">
+                    <label class="checkbox-label"><input type="checkbox" id="includeUppercase" checked /> Uppercase</label>
+                    <label class="checkbox-label"><input type="checkbox" id="includeLowercase" checked /> Lowercase</label>
+                    <label class="checkbox-label"><input type="checkbox" id="includeNumbers" checked /> Numbers</label>
+                    <label class="checkbox-label"><input type="checkbox" id="includeSymbols" checked /> Symbols</label>
+                </div>
+                <button id="generateButton" class="btn-primary">Generate Password</button>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="checker-panel">
+                <div class="checker-header">
+                    <h2>Strength Check</h2>
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <input type="text" id="strengthInput" placeholder="Check a password..." />
+                <div class="strength-meter">
+                    <div id="strengthBar" class="strength-bar"></div>
+                </div>
+                <p id="strengthText" class="strength-text">Strength: Awaiting...</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
